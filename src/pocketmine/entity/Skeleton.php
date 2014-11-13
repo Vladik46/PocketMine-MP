@@ -21,6 +21,49 @@
 
 namespace pocketmine\entity;
 
-class Skeleton extends Monster implements ProjectileSource{
+use pocketmine\event\entity\EntityDamageByEntityEvent;
+//use pocketmine\item\Item as ItemItem;
+use pocketmine\network\protocol\AddMobPacket;
+use pocketmine\network\protocol\SetEntityMotionPacket;
+use pocketmine\Player;
 
+class Skeleton extends Monster{
+	const NETWORK_ID = 31;
+	public $width = 0.6;
+	public $length = 0.6;
+	public $height = 1.8;
+	public function getName(){
+		return "Skeleton";
+	}
+	public function spawnTo(Player $player){
+		$pk = new AddMobPacket();
+		$pk->eid = $this->getID();
+		$pk->type = Skeleton::NETWORK_ID;
+		$pk->x = $this->x;
+		$pk->y = $this->y;
+		$pk->z = $this->z;
+		$pk->yaw = $this->yaw;
+		$pk->pitch = $this->pitch;
+		$pk->metadata = $this->getData();
+		$player->dataPacket($pk);
+		$pk = new SetEntityMotionPacket();
+		$pk->entities = [
+			[$this->getID(), $this->motionX, $this->motionY, $this->motionZ]
+		];
+		$player->dataPacket($pk);
+		parent::spawnTo($player);
+	}
+	public function getData(){ //TODO
+		$flags = 0;
+		$flags |= $this->fireTicks > 0 ? 1 : 0;
+		//$flags |= ($this->crouched === true ? 0b10:0) << 1;
+		//$flags |= ($this->inAction === true ? 0b10000:0);
+		$d = [
+			0 => ["type" => 0, "value" => $flags],
+			1 => ["type" => 1, "value" => $this->airTicks],
+			16 => ["type" => 0, "value" => 0],
+			17 => ["type" => 6, "value" => [0, 0, 0]],
+		];
+		return $d;
+	}
 }
