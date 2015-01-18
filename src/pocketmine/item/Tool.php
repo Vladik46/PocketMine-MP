@@ -77,6 +77,7 @@ abstract class Tool extends Item{
 			self::FLINT_STEEL => 65,
 			self::SHEARS => 239,
 			self::BOW => 385,
+			self::BOW => 460,
 		];
 
 		if(($type = $this->isPickaxe()) === false){
@@ -119,6 +120,6 @@ abstract class Tool extends Item{
 	}
 
 	public function isTool(){
-		return ($this->id === self::FLINT_STEEL or $this->id === self::SHEARS or $this->id === self::BOW or $this->isPickaxe() !== false or $this->isAxe() !== false or $this->isShovel() !== false or $this->isSword() !== false);
+		return ($this->id === self::FLINT_STEEL or $this->id === self::SHEARS or $this->id === self::BOW or $this->id === self::AK47 or $this->isPickaxe() !== false or $this->isAxe() !== false or $this->isShovel() !== false or $this->isSword() !== false);
 	}
 }
