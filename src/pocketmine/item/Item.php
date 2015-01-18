@@ -385,6 +385,7 @@ class Item{
 	const BEETROOT_SEEDS = 458;
 	const BEETROOT_SEED = 458;
 	const BEETROOT_SOUP = 459;
+	const BOW = 460;
 
 
 	/** @var \SplFixedArray */
@@ -477,6 +478,7 @@ class Item{
 			self::$list[self::FLINT_STEEL] = FlintSteel::class;
 			self::$list[self::SHEARS] = Shears::class;
 			self::$list[self::BOW] = Bow::class;
+			self::$list[self::AK47] = Bow::class;
 
 			for($i = 0; $i < 256; ++$i){
 				if(Block::$list[$i] !== null){
