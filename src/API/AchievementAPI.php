@@ -79,7 +79,7 @@ if (isset($_GET['id']))
 				$sql = "UPDATE users SET time_later = '$rtime', tree = tree - '200', stone = stone - '300', ore = ore - '150' WHERE id = '$user[id]' LIMIT 1";
 			break;
 			case 6:
-				$tleft = 120;
+$tleft = 120;
 				$sql = "UPDATE users SET time_later = '$rtime', tree = tree - '200', stone = stone - '300', ore = ore - '200', gold = gold - '150' WHERE id = '$user[id]' LIMIT 1";
 			break;
 			case 7:
@@ -2747,6 +2747,23 @@ case transmint:
 		  <a href="upgrade'.$id_build['id'].'">Вернуться</a>';
 break;
 
+case kolce:
+ echo' <img src="kolco/kolco.png" alt="+"/> <b>Кольцо земли </b><br><a href="kolcos.php?id=1">Взять себе</a><br/>
+ <img src="kolco/kolco0.png" alt="+"/> <b>Кольцо ветров</b><br><a href="kolcos.php?id=2">Взять себе</a><br/>
+ <img src="kolco/kolco1.png" alt="+"/><b>Кольцо драконов </b><br> <a href="kolcos.php?id=3">Взять себе</a><br/>
+ <img src="kolco/kolco2.png" alt="+"/> <b>Кольцо власти </b><br><a href="kolcos.php?id=4">Взять себе</a><br/>
+ <img src="kolco/kolco3.png" alt="+"/><b>Кольцо огня</b><br> <a href="kolcos.php?id=5">Взять себе</a><br/>
+ <img src="kolco/kolco4.png" alt="+"/> <b>Кольцо света </b><br> <a href="kolcos.php?id=6">Взять себе</a><br/>
+<img src="kolco/kolco5.png"
+alt="+"/> <b>Кольцо воды</b><br><a href="kolcos.php?id=7">Взять себе</a><br/>
+ <img src="kolco/kolco6.png" alt="+"/><b>Кольцо гномов</b><br> <a href="kolcos.php?id=8">Взять себе</a><br/>
+<img src="kolco/kolco7.png" alt="+"/> <b>Кольцо богов</b><br><a href="kolcos.php?id=9">Взять себе</a><br/>
+<img src="kolco/kolco8.png" alt="+"/><b>Кольцо титанов</b><br> <a href="kolcos.php?id=10">Взять себе</a><br/>
+<img src="kolco/kolco9.png" alt="+"/> <b>Кольцо желаний</b><br><a href="kolcos.php?id=11">Взять себе</a><br/>
+<img src="kolco/kolco10.png" alt="+"/><b>Кольцо лесов</b><br> <a href="kolcos.php?id=12">Взять себе</a><br/>
+<img src="kolco/kolco11.png" alt="+"/><b>Кольцо эльфоф</b><br> <a href="kolcos.php?id=13">Взять себе</a><br/>
+';
+break;
 }
 
 echo '<br/><a href="index.php">На главную</a>';
